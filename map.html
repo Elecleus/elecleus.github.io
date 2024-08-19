@@ -106,7 +106,7 @@
         var myChart = echarts.init(document.getElementById('map'));
 
         $.when(
-            $.get('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+            $.get('100000_full.json')
         ).done(function (geoJsonData) {
             function createSchool(school) {
                 var element = $("<div class=\"school\"></div>")
