@@ -35,7 +35,7 @@
 
         #map {
             height: 100%;
-            border-radius: 20px 0 0 20px;
+            /* border-radius: 20px 0 0 20px; */
             overflow: hidden;
             background-color: var(--bg-color);
 
@@ -51,7 +51,7 @@
             background-color: var(--bg-color);
             display: grid;
 
-            border-radius: 0 20px 20px 0;
+            /* border-radius: 0 20px 20px 0; */
             overflow: hidden;
         }
 
@@ -85,46 +85,105 @@
             display: grid;
             column-count: 1;
         }
+
+        .page {
+            display: none;
+            overflow: hidden;
+
+            height: 100%;
+            width: 100%;
+
+            border-radius: 20px;
+        }
+
+        #button {
+            height: 10%;
+            width: 20%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 120%;
+            padding: .8em 2em;
+            transition: color .25s ease-in-out, border-color .25s ease-in-out, background-color .25s ease-in-out;
+
+            margin: 5%;
+        }
+
+        #button:hover {
+            background-color: hsla(0, 0%, 100%, .2);
+            color: #fff;
+        }
+
+        #input {
+            height: 11%;
+            width: 65%;
+
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 120%;
+            padding: .8em;
+            transition: color .25s ease-in-out, border-color .25s ease-in-out, background-color .25s ease-in-out;
+
+            margin: 5%;
+        }
+
+        #input:hover,
+        #input:focus {
+            background-color: hsla(0, 0%, 100%, .2);
+            color: #fff;
+        }
+
+        #password-input-box {
+            height: 35%;
+            width: 45%;
+            flex-direction: column;
+            position: relative;
+            backdrop-filter: blur(3px);
+            border-radius: 20px;
+            border: 2px solid#ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
-    <div id="main">
-        <div id="map"></div>
-        <div class="list" style="padding-top: 5pt; padding-bottom: 5pt; border-radius: 0 20px 20px 0;">
+
+    <div id="page1" class="page"
+        style="display: flex; justify-content: center; align-items: center; background-image: url(
+        http://cdn.img-sys.com/comdata/100364/product/20200814172141834A34D5AC27B860_b.jpg); background-size: cover; background-position-x: center; background-position-y: center;">
+        <div id="password-input-box">
+            <input id="input" type="text" placeholder="请输入密码">
+            <div id="button">进入</div>
         </div>
     </div>
 
+    <div id="page2" class="page">
+        <div id="main">
+            <div id="map"></div>
+            <div class="list" style="padding-top: 5pt; padding-bottom: 5pt;"></div>
+        </div>
+    </div>
 
 
     <script>
         // 各学校坐标，加密数据
         var encryptedInfo = "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"
 
-        document.getElementsByClassName('school');
-
-        var myChart = echarts.init(document.getElementById('map'));
-
-        $.when(
-            $.get('100000_full.json')
-        ).done(function (geoJsonData) {
-            function createSchool(school) {
-                var element = $("<div class=\"school\"></div>")
-
-                var listOfSchool = $("<div class=\"list-of-school\"></div>")
-                for (let i of school.student) {
-                    listOfSchool.append($("<div class=\"name\">" + i + "</div>"))
-                }
-
-                element.append($("<div>" + school.name + "</div>"))
-                    .append(listOfSchool)
-                $(".list").append(element)
-
-            }
 
 
-
-            var passwd = prompt("手机端推荐横屏查看哦\n请输入密码：", "")
+        function after_passwd(passwd) {
+            document.getElementById("page1").style.display = "none"
+            document.getElementById("page2").style.display = "block"
 
             var decryptedInfo = CryptoJS.AES.decrypt(encryptedInfo, passwd)
             try {
@@ -135,187 +194,135 @@
             }
             var info = JSON.parse(decryptedInfo)[0];
 
+            $.when(
+                $.get('100000_full.json')
+            ).done(function (geoJsonData) {
+                function createSchool(school) {
+                    var element = $("<div class=\"school\"></div>")
 
-
-            for (let i of info) {
-                createSchool(i)
-            }
-
-            // 处理地图数据
-            echarts.registerMap('china', geoJsonData);
-
-            // 图表的基本配置
-            var option = {
-                tooltip: {
-                    trigger: 'item'
-                },
-                geo: {
-                    map: 'china',
-                    roam: true,
-                    scaleLimit: {  // 设置缩放的比例范围
-                        // min: 1,
-                        max: 100
-                    },
-                    label: {
-                        show: false
-                    },
-                    emphasis: {
-                        label: {
-                            show: true
-                        }
+                    var listOfSchool = $("<div class=\"list-of-school\"></div>")
+                    for (let i of school.student) {
+                        listOfSchool.append($("<div class=\"name\">" + i + "</div>"))
                     }
-                },
-                series: {
-                    type: 'scatter',
-                    coordinateSystem: 'geo',
-                    zlevel: 10,
-                    data: info,
-                    // label: {
-                    //     show: true,
-                    //     formatter: '{b}',
-                    // },
-                    // labelLine: {
-                    //     show: true,
-                    //     length2: 10
-                    // },
-                    // labelLayout(params) {
-                    //     return {
-                    //         x: 10,
-                    //         y: params.dataIndex * 20 + 10,
-                    //         verticalAlign: 'middle',
-                    //         align: 'left'
-                    //     }
-                    // },
+
+                    element.append($("<div>" + school.name + "</div>"))
+                        .append(listOfSchool)
+                    $(".list").append(element)
+
+                }
+
+                for (let i of info) {
+                    createSchool(i)
+                }
+
+                // 处理地图数据
+                echarts.registerMap('china', geoJsonData);
+
+                // 图表的基本配置
+                var option = {
                     tooltip: {
-                        show: false
+                        trigger: 'item'
                     },
-                    emphasis: {
+                    geo: {
+                        map: 'china',
+                        roam: true,
+                        scaleLimit: {  // 设置缩放的比例范围
+                            // min: 1,
+                            max: 100
+                        },
+                        label: {
+                            show: false
+                        },
+                        emphasis: {
+                            label: {
+                                show: true
+                            }
+                        }
+                    },
+                    series: {
+                        type: 'scatter',
+                        coordinateSystem: 'geo',
+                        zlevel: 10,
+                        data: info,
+                        // label: {
+                        //     show: true,
+                        //     formatter: '{b}',
+                        // },
+                        // labelLine: {
+                        //     show: true,
+                        //     length2: 10
+                        // },
+                        // labelLayout(params) {
+                        //     return {
+                        //         x: 10,
+                        //         y: params.dataIndex * 20 + 10,
+                        //         verticalAlign: 'middle',
+                        //         align: 'left'
+                        //     }
+                        // },
                         tooltip: {
                             show: false
-                        }
-                    },
-                    colorBy: 'series'
-                },
-                // graphic: {
-                //     elements: []
-                // }
-            };
-
-            myChart.setOption(option);
-
-
-            function flyTo(name) {
-                let the_point;
-                for (i in data) {
-                    if (i.name === name) {
-                        the_point = myChart.convertToPixel('geo', i.value)
-                        break
-                    }
-                }
-
-            }
-
-            // 点击学校元素时触发事件，用于之后的 focus.
-            var school_label = document.getElementsByClassName('school')
-            for (let i of school_label) {
-                i.addEventListener('click', function (event) {
-                    var the_text = event.target.innerText
-                    console.log(the_text)
-                    myChart.dispatchAction({
-                        type: 'highlight',
-                        name: '山东省',
-                    });
-                });
-            };
-
-            function makeLine() {
-                var rects = function () {
-                    var result = [];
-
-                    for (let i of school_label) {
-                        result.push(i.getBoundingClientRect())
-                    }
-
-                    return result
-                }()
-
-                var list_element = document.getElementById('list').getBoundingClientRect()
-                var rect_of_chart = document.getElementById('map').getBoundingClientRect()
-
-                for (var i = 0; i < school_label.length; i++) {
-
-                    // 二元算数平均值
-                    function mid_value(val1, val2) {
-                        return (val1 + val2) / 2
-                    };
-
-                    // 获取 y2
-                    var rect = rects[i]
-                    var y2 = mid_value(rect.top, rect.bottom) - rect_of_chart.y
-
-                    var x2 = list_element.left - rect_of_chart.x
-
-                    // geo 坐标系的 p2
-                    p2 = [x2, y2]
-
-                    // pixel 坐标系的 p1
-                    var p1 = myChart.convertToPixel('geo', info[i].value)
-
-                    // geo 坐标系的 p3
-                    // var p3 = [
-                    //     p1[1] - p2[1] + p2[0],
-                    //     p1[1]
-                    // ]
-
-                    // geo 坐标系的 p3
-                    var p3 = [
-                        myChart.convertToPixel('geo', [140, 0])[0],
-                        p1[1]
-                    ]
-
-                    console.log(p1, p2, p3)
-
-                    option.graphic.elements.push(
-                        {
-                            type: 'line',
-                            z: 100,
-                            shape: {
-                                x1: p1[0],
-                                y1: p1[1],
-                                x2: p2[0],
-                                y2: p2[1]
+                        },
+                        emphasis: {
+                            tooltip: {
+                                show: false
                             }
                         },
-                        // {
-                        //     type: 'line',
-                        //     z: 100,
-                        //     shape: {
-                        //         x1: p2[0],
-                        //         y1: p2[1],
-                        //         x2: p3[0],
-                        //         y2: p3[1]
-                        //     }
-                        // }
-                    )
-                    myChart.setOption(option);
+                        colorBy: 'series'
+                    },
+                    // graphic: {
+                    //     elements: []
+                    // }
+                };
+
+
+                var myChart = echarts.init(document.getElementById('map'));
+                myChart.setOption(option);
+
+
+                function flyTo(name) {
+                    let the_point;
+                    for (i in data) {
+                        if (i.name === name) {
+                            the_point = myChart.convertToPixel('geo', i.value)
+                            break
+                        }
+                    }
+
                 }
+
+                // 点击学校元素时触发事件，用于之后的 focus.
+                var school_label = document.getElementsByClassName('school')
+                for (let i of school_label) {
+                    i.addEventListener('click', function (event) {
+                        var the_text = event.target.innerText
+                        console.log(the_text)
+                        // myChart.dispatchAction({
+                        //     type: 'highlight',
+                        //     name: '山东省',
+                        // });
+                    });
+                };
+
+                window.addEventListener('resize', function () {
+                    myChart.resize();
+                });
+            })
+        }
+
+        $("#input").keypress(function (key) {
+            if (key.which == 13) {
+                var passwd = $("#input").val()
+                after_passwd(passwd)
             }
-
-            // makeLine()
-
-            // myChart.on('georoam', function (params) {
-            //     option.graphic.elements = []
-            //     myChart.setOption(option)
-            //     makeLine();
-            // });
-
+        })
+        $("#button").click(function () {
+            var passwd = $("#input").val()
+            after_passwd(passwd)
         })
 
 
 
-        window.addEventListener('resize', function () {
-            myChart.resize();
-        });
 
     </script>
 </body>
